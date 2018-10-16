@@ -155,3 +155,20 @@ if (PYBIND11_INSTALL)
     endif()
   endif()
 endif()
+
+#################
+# CIBC specific #
+#################
+
+SET(SCI_PYBIND_INCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/include" CACHE INTERNAL "PyBind include directories.")
+
+#SET(SCI_TNY_LIBRARY cibc_tny CACHE INTERNAL "tny library name.")
+#MESSAGE("cibc-tny: " ${SCI_TNY_LIBRARY})
+# Create static library to use.
+#add_library(${SCI_TNY_LIBRARY} STATIC ${Sources})
+
+#set(SCI_TNY_LIBRARY_DIR ${CMAKE_CURRENT_BINARY_DIR})
+set(PYBIND_USE_FILE "${CMAKE_CURRENT_SOURCE_DIR}/UsePyBind.cmake")
+
+configure_file(PyBindConfig.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/PyBindConfig.cmake" @ONLY)
+#export(TARGETS ${SCI_TNY_LIBRARY} FILE TnyExports.cmake)
